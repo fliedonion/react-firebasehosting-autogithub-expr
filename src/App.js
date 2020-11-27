@@ -5,10 +5,17 @@ import {useState} from 'react';
 function App() {
   // 左辺、カーリーブレイスではない。
   const [value, setValue] = useState('')
+  const [todos, setTodos] = useState([])
   const handleSubmit = e => {
     e.preventDefault()
-    console.log(value)
+    addTodo(value)
   }
+  const addTodo = text => {
+    const newTodos = [...todos, text]
+    setTodos(newTodos)
+    console.log(newTodos)
+  }
+
   return (
     <div className="App">
       <Container>

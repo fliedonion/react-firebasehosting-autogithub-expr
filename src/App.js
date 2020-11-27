@@ -13,7 +13,7 @@ function App() {
   const addTodo = text => {
     const newTodos = [...todos, {text, complete: false}]
     setTodos(newTodos)
-    console.log(newTodos)
+    setValue('')
   }
   const removeTodo = index => {
     const newTodos = [...todos]

@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Container>
-        <h1 className="mt-4">Todo リスト</h1>
+        <h1 className="mt-4">TODO App with React ContextAPI</h1>
 
         <TodosContextProvider>
           <TodoForm></TodoForm>

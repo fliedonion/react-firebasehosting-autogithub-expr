@@ -1,9 +1,11 @@
-
+import {useContext} from 'react';
 import {Table, Button} from 'reactstrap';
+import { TodosContext } from '../contexts/TodosContext';
 
 
-const TodoList = ({todos, removeTodo, completeTodo}) => {
-
+const TodoList = () => {
+    // props で伝搬していた代わりに、useContextを利用してContextから拾う
+    const {todos, removeTodo, completeTodo} = useContext(TodosContext)
 
     return (
         <Table>

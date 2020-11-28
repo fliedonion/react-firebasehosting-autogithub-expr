@@ -1,19 +1,15 @@
 import './App.css';
-import {Container, Form, Input, InputGroup, InputGroupAddon, Button, Table} from 'reactstrap'
+import {Container, Button, Table} from 'reactstrap'
 import {useState} from 'react';
+import TodoForm from './components/TodoForm';
 
 function App() {
   // 左辺、カーリーブレイスではない。
-  const [value, setValue] = useState('')
   const [todos, setTodos] = useState([])
-  const handleSubmit = e => {
-    e.preventDefault()
-    addTodo(value)
-  }
+
   const addTodo = text => {
     const newTodos = [...todos, {text, complete: false}]
     setTodos(newTodos)
-    setValue('')
   }
   const removeTodo = index => {
     const newTodos = [...todos]
@@ -30,16 +26,7 @@ function App() {
     <div className="App">
       <Container>
         <h1 className="mt-4">Todo リスト</h1>
-        <Form onSubmit={handleSubmit}>
-          <InputGroup>
-            <Input type="text" 
-              value={value}
-              onChange={e => setValue(e.target.value)} />
-            <InputGroupAddon addonType="append">
-              <Button type="submit" color="primary">追加</Button>
-            </InputGroupAddon>
-          </InputGroup>
-        </Form>
+        <TodoForm addTodo={addTodo}></TodoForm>
       </Container>
       <Container>
         <Table>
